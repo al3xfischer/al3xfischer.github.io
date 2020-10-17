@@ -9,7 +9,6 @@ import { NavigationComponent } from './navigation/navigation.component';
 @NgModule({
   declarations: [
     AppComponent,
-    AppBarComponent,
     NavigationComponent
   ],
   imports: [
