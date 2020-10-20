@@ -1,10 +1,26 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { ThemeService } from './core/services/theme.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.sass']
+  styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
-  title = 'al3xfischer';
+export class AppComponent implements OnInit {
+  isDarkTheme: Observable<boolean>;
+
+  constructor(private themeService: ThemeService) {}
+
+  ngOnInit(): void {
+    this.isDarkTheme = this.themeService.isDarkTheme;
+  }
+  
+  testm(x: any) {
+    // console.log(typeof x);
+    let theme = x === 'true' ? 'dark-theme' : '';
+    console.log(theme);
+    return theme;
+  }
+
 }

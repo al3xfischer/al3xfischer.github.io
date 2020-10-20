@@ -9,29 +9,68 @@
 // Be sure that you only ever include this mixin once!
 @include mat-core();
 
-// Define the palettes for your theme using the Material Design palettes available in palette.scss
-// (imported above). For each palette, you can optionally specify a default, lighter, and darker
-// hue. Available color palettes: https://material.io/design/color/
-$al3xfischer-primary: mat-palette($mat-indigo);
-$al3xfischer-accent: mat-palette($mat-pink, A200, A100, A400);
+$mat-white: (
+  50: #fafafa,
+  100: #fafafa,
+  200: #fafafa,
+  300: #fafafa,
+  400: #fafafa,
+  500: #fafafa,
+  600: #fafafa,
+  700: #fafafa,
+  800: #fafafa,
+  900: #fafafa,
+  A100: #fafafa,
+  A200: #fafafa,
+  A400: #fafafa,
+  A700: #fafafa,
+  contrast: (
+    50: $dark-primary-text,
+    100: $dark-primary-text,
+    200: $dark-primary-text,
+    300: $dark-primary-text,
+    400: $dark-primary-text,
+    500: $dark-primary-text,
+    600: $light-primary-text,
+    700: $light-primary-text,
+    800: $light-primary-text,
+    900: $light-primary-text,
+    A100: $dark-primary-text,
+    A200: $dark-primary-text,
+    A400: $dark-primary-text,
+    A700: $light-primary-text,
+  )
+);
 
-// The warn palette is optional (defaults to red).
-$al3xfischer-warn: mat-palette($mat-red);
+$primary: mat-palette($mat-white);
+$accent: mat-palette($mat-white);
 
-// Create the theme object. A theme consists of configurations for individual
-// theming systems such as "color" or "typography".
+$warn: mat-palette($mat-red);
+
 $al3xfischer-theme: mat-light-theme((
   color: (
-    primary: $al3xfischer-primary,
-    accent: $al3xfischer-accent,
-    warn: $al3xfischer-warn,
+    primary: $primary,
+    accent: $accent,
+    warn: $warn,
   )
 ));
+
+
 
 // Include theme styles for core and each component used in your app.
 // Alternatively, you can import and @include the theme mixins for each component
 // that you are using.
 @include angular-material-theme($al3xfischer-theme);
+
+.dark-theme {
+  color: $light-primary-text;
+  $dark-primary: mat-palette($mat-grey);
+  $dark-accent: mat-palette($mat-amber, A400, A100, A700);
+  $dark-warn: mat-palette($mat-red);
+  $dark-theme: mat-dark-theme($dark-primary, $dark-accent, $dark-warn);
+
+  @include angular-material-theme($dark-theme);
+}
 
 
 html, body { height: 100%; }
