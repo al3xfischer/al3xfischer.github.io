@@ -1,13 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ThemeService } from '../core/services/theme.service';
 
 @Component({
-  selector: 'app-navigation',
-  templateUrl: './navigation.component.html',
-  styleUrls: ['./navigation.component.scss']
+  selector: 'app-toolbar',
+  templateUrl: './toolbar.component.html',
+  styleUrls: ['./toolbar.component.scss']
 })
-export class NavigationComponent implements OnInit {
+export class ToolbarComponent implements OnInit {
 
   isDarkTheme : Observable<boolean>;
 
@@ -20,5 +20,4 @@ export class NavigationComponent implements OnInit {
   toggleDarkTheme(value: string): void {
     this.themeService.setDarkTheme((value === 'true'));
   }
-
 }

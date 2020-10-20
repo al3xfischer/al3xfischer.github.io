@@ -29,7 +29,7 @@
             ],
             "styles": [
               "src/app-theme.scss",
-              "src/styles.ssss"
+              "src/styles.scss"
             ],
             "scripts": []
           },

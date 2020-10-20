@@ -1,5 +1,8 @@
 <div [ngClass]="{'dark-theme': isDarkTheme | async}">
     <div class="mat-app-background">
-        <app-navigation></app-navigation>
+        <app-toolbar></app-toolbar>
+        <main>
+            <app-main></app-main>
+        </main>
     </div>
 </div>
